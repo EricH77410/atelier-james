@@ -22,49 +22,28 @@ export default class NavBar extends Component {
 
     render() {
         return (
-          <div>
-          <header id="masthead" className="site-header main_h>" role="banner">
+            <nav className="navbar navbar-expand-sm main-menu">
+                <Link to="/" className="navbar-brand">
+                    <img className="logo" src={logo} alt="Logo"/>
+                </Link>
+                <button className="navbar-toggler" type="button" onClick={this.navbarHandler}>
+                    <span className="navbar-toggler-icon"></span>
+                </button>
 
-        			<div className="row">
-                	<Link className="logo" to="/" />
-        				<img className="rico-img" src={logo} alt="Logo" />
+                <div className={this.state.css}>
+                    <ul className="navbar-nav mx-auto">
+                        {this.state.links.map((item, ind) => {
+                            return (
+                                <li key={ind} className="nav-item menu-item">
+                                    <Link to={item.path} className="nav-link text-uppercase">{item.text}</Link>
+                                </li>
+                            )
+                        } )}
 
+                    </ul>
+                </div>
 
-                	<div className="rico_mobile-toggle">
-                    	<span></span>
-                    	<span></span>
-                    	<span></span>
-                	</div>
-
-        			<nav className="rico-nav">
-        				<ul>
-        					<li><a href="#menu-jour">Menu du jour</a></li>
-        					<li><a href="#menu-semaine">Menu de la semaine</a></li>
-        					<li><a href="#contact">Contact</a></li>
-        				</ul>
-        			</nav>
-
-            	</div>
-
-        	</header>
-        	<div className="hero">
-        		<div className="hero_milieu">
-        			<div className="header_title">
-
-        				<img src={logo} alt="Logo"/>
-        			</div>
-        		</div>
-        		<div className="hero_bottom">
-        			<h3>Traiteur - Epicerie fine</h3>
-        			<h4>17 Avenue de Verdun</h4>
-        			<h4>64200 BIARRITZ</h4>
-        			<div className="hero_bottom__contact">
-        				<h4>05.59.26.33.37</h4>
-        				<h4>latelierdejamse64@yahoo.com</h4>
-        			</div>
-        		</div>
-        	</div>
-          </div>
+            </nav>
         )
     }
 }
