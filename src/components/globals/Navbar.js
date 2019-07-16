@@ -10,9 +10,10 @@ export default class NavBar extends Component {
         css: 'collapse navbar-collapse',
         links: [
             {id:1, path:'/', text:'home'},
-            {id:2, path:'/menu-jour', text:'menu du jour'},
-            {id:3, path:'/menu-semaine', text:'menu de la semaine'},
-            {id:2, path:'/about', text:'à propos'}
+            {id:2, path:'/#menu-jour', text:'menu du jour'},
+            {id:3, path:'/#menu-semaine', text:'menu de la semaine'},
+            {id:4, path:'/#about', text:'à propos'},
+            {id:5, path:'/#contact', text:'contact'}
         ]
     }
 

@@ -6,6 +6,13 @@
     --mainDark: #222;
     --mainGold: #8C7E5B;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes&display=swap');
+
+.title {
+  font-family: 'Great Vibes',serif;
+}
+
 /* Barre de menu */
 
 .main-menu {
@@ -20,11 +27,44 @@
   color: var(--mainWhite);
   margin-right: 2rem;
   font-size: 1.3rem;
+  transition: all .3s;
+}
+
+.menu-item a:hover {
+  text-shadow: 0px 0px 10px var(--mainWhite);
 }
 
 /* Fin Barre de menu */
 
-.main  {
-  background-image: url("../images/back.jpg"); 
-  height: 100vh;
+.home-hero {
+  min-height: calc(100vh - 70px);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  opacity: 1;
 }
+
+.banner {
+  text-align: center;
+  width: 100%;
+}
+
+.banner-title {
+  width: 100%;
+  background: var(--mainGold);
+}
+
+.banner-info {
+  width: 100%;
+  background: var(--mainWhite);
+  color: var(--mainGold);
+}
+
+.banner-contact {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+}
+

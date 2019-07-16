@@ -13,6 +13,7 @@ import './bootstrap.min.css'
 import "./layout.css"
 
 import NavBar from "./globals/Navbar"
+import Footer from './globals/Footer'
 
 
 const Layout = ({ children }) => {
@@ -28,9 +29,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <NavBar siteTitle={data.site.siteMetadata.title} />
-      {children}
-
+      <NavBar />
+        {children}
+      <Footer/>
     </>
   )
 }
