@@ -13,6 +13,7 @@ export default class NavBar extends Component {
         links: [
             {id:2, path:'menu-jour', text:'menu du jour'},
             {id:3, path:'menu-semaine', text:'menu de la semaine'},
+            {id:1, path:'info', text:'info'},
             {id:5, path:'contact', text:'contact'}
         ],
         social: [
@@ -51,7 +52,7 @@ export default class NavBar extends Component {
                             return <a className="social-item" href={item.url} key={ind} target="_blank" rel="noopener noreferrer">{item.icon}</a>
                         })}
                     </div>
-                    </div>               
+                    </div>
 
                 </nav>
             </div>
