@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+//import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,6 +10,7 @@ import Banner from '../components/globals/Banner'
 import MenuJour from '../components/globals/MenuJour'
 import MenuSemaine from '../components/globals/MenuSemaine'
 import Contact from '../components/globals/Contact'
+//import Admin from '../components/AdminProduct'
 
 const IndexPage = () => (
   <Layout>
@@ -21,6 +22,9 @@ const IndexPage = () => (
       <MenuJour />
       <MenuSemaine />
       <Contact />
+     <div name="test">
+       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet recusandae vitae cum aspernatur est alias eligendi repudiandae laudantium ratione, perferendis, fugiat eaque. Maiores sapiente amet id ducimus dolorum. Dolor, incidunt?</p>
+     </div>
     </section>
     
   </Layout>
