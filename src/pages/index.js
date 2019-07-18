@@ -24,9 +24,6 @@ const IndexPage = () => (
       <MenuSemaine />
       <Info />
       <Contact />
-     <div name="test">
-       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet recusandae vitae cum aspernatur est alias eligendi repudiandae laudantium ratione, perferendis, fugiat eaque. Maiores sapiente amet id ducimus dolorum. Dolor, incidunt?</p>
-     </div>
     </section>
 
   </Layout>

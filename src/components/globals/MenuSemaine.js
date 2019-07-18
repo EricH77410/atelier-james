@@ -1,12 +1,25 @@
 import React from 'react'
 
+import Hero from './Hero'
 import Title from './Title'
+
+import PlatList from '../globals/PlatList'
+
+const days = ['Lundi', 'Mardi', 'Mercredi', "Jeudi", 'Vendredi', 'Samedi', 'Dimanche']
 
 const MenuSemaine = () => {
   return (
     <section name="menu-semaine">
-      <Title title="menu de la semaine" />
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores modi eos facere excepturi sunt ullam consequatur, architecto earum eligendi nulla culpa assumenda ad magni et, aliquam iste itaque! Praesentium, dolorem.</p>
+      <Hero>
+        <Title title="menu de la semaine" />
+      </Hero>
+      
+      <div className="menu-container">
+        {days.map((day, ind) => {
+          return <PlatList key={ind} day={day}/>
+        })}
+        
+      </div>
     </section>
   )
 }

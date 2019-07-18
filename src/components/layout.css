@@ -11,6 +11,8 @@
 
 .title {
   font-family: 'Great Vibes',serif;
+  color: var(--mainWhite);
+  padding: 2rem 0;
 }
 
 /* Barre de menu */
@@ -157,3 +159,54 @@
   border: 1px solid var(--mainBrown);
   box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5);
 }
+
+/* MENU SEMAINE */
+
+.menu-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* FIN MENU SEMAINE */
+
+/* LISTE PLAT */ 
+.list-plat {
+  /* display: flex;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  margin-bottom: 1rem;
+}
+.list-plat-content {
+  display: flex;
+  justify-content: space-around;
+}
+.list-plat-title {
+  align-self: center;
+  font-family: 'Great Vibes',serif;
+  color: var(--mainGold);
+}
+/* FIN LIST PLAT */
+
+/* PLAT */
+.plat-card {
+  width: 12rem;
+  color: var(--mainGold);
+}
+
+.plat-card-title {
+  font-size: 1rem;
+  font-weight: bold;    
+}
+
+.plat-card-description {
+  font-size: 0.8rem;
+}
+
+.plat-content span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-left: 1.25rem;
+}
+/* FIN PLAT */

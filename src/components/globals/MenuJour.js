@@ -1,15 +1,49 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+
+import Hero from './Hero'
 import Title from './Title'
 
+import PlatList from './PlatList'
+
+// const getTodayMenu = graphql`
+// query($today:String!){
+//   today:allContentfulPlat(filter: { category: { elemMatch: {title: {eq: $today}}}}){
+//     edges{
+//       node{
+//         title
+//         price
+//         description
+//         category {
+//           title
+//         }
+//         image {
+//           fluid {
+//             ...GatsbyContentfulFluid
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// `
+
 const getTheDay = () => {
-  
+  return 'Jeudi'
 }
 
 const MenuJour = () => {
+  // const {today} = useStaticQuery(getTodayMenu)
+  // console.log(today)
   return (
     <section name="menu-jour">
-      <Title title="menu du jour"/>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et reprehenderit, suscipit ipsam molestiae laudantium maiores fugiat ea sit explicabo reiciendis molestias consequatur temporibus, pariatur minus. Fugiat maiores nostrum numquam ullam.</p>
+      <Hero>
+        <Title title="menu du jour"/>
+      </Hero>
+
+      <div className="menu-jour menu-container">
+        <PlatList day={getTheDay()} />
+      </div>
     </section>
   )
 }
