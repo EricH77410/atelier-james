@@ -13,12 +13,12 @@ const MenuSemaine = () => {
       <Hero>
         <Title title="menu de la semaine" />
       </Hero>
-      
+
       <div className="menu-container">
         {days.map((day, ind) => {
           return <PlatList key={ind} day={day}/>
         })}
-        
+
       </div>
     </section>
   )

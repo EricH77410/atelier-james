@@ -169,34 +169,49 @@
 
 /* FIN MENU SEMAINE */
 
-/* LISTE PLAT */ 
+/* LISTE PLAT */
 .list-plat {
-  /* display: flex;
-  justify-content: space-between; */
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr;
   margin-bottom: 1rem;
+  margin: 2rem auto;
 }
 .list-plat-content {
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
 }
 .list-plat-title {
   align-self: center;
   font-family: 'Great Vibes',serif;
   color: var(--mainGold);
+  text-align: center;
+}
+
+@media only screen and (min-width: 1200px) {
+  .list-plat {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+  }
+  .list-plat-content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
 }
 /* FIN LIST PLAT */
 
 /* PLAT */
 .plat-card {
-  width: 12rem;
+  width: 100%;
   color: var(--mainGold);
+  align-self: center;
+  margin-bottom: 1rem;
 }
 
 .plat-card-title {
   font-size: 1rem;
-  font-weight: bold;    
+  font-weight: bold;
 }
 
 .plat-card-description {
@@ -208,5 +223,12 @@
   left: 0;
   bottom: 0;
   padding-left: 1.25rem;
+}
+
+@media only screen and (min-width: 1200px) {
+  .plat-card {
+    align-self: initial;
+    width: 12rem;
+  }
 }
 /* FIN PLAT */
