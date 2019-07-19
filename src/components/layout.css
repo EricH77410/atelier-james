@@ -46,8 +46,7 @@
 }
 
 .social-link {
-
-  text-align: center;
+  margin: 0 auto;
 }
 
 .social-item {
@@ -102,6 +101,9 @@
 }
 
 @media only screen and (min-width: 1200px) {
+  .navbar-collapse {
+    flex-grow: 1;
+  }
   .main-menu {
     padding: 0;
     width: 80%;
@@ -120,6 +122,10 @@
   }
   .logo {
     width: 250px;
+  }
+
+  .social-link {
+    text-align: left;
   }
 
   .banner {

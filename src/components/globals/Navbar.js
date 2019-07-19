@@ -46,12 +46,13 @@ export default class NavBar extends Component {
                                     </li>
                                 )
                             } )}
+                            <div className="social-link">
+                            { this.state.social.map((item, ind) => {
+                                return <a className="social-item" href={item.url} key={ind} target="_blank" rel="noopener noreferrer">{item.icon}</a>
+                            })}
+                            </div>
                         </ul>
-                        <div className="social-link">
-                        { this.state.social.map((item, ind) => {
-                            return <a className="social-item" href={item.url} key={ind} target="_blank" rel="noopener noreferrer">{item.icon}</a>
-                        })}
-                    </div>
+
                     </div>
 
                 </nav>

@@ -14,7 +14,7 @@ const Info = () => {
       <Hero>
         <Title title="informations"/>
       </Hero>
-      
+
       <div className="row info-container">
         <div className="info-horaires col-sm">
           <div className="info-icon">
@@ -24,13 +24,13 @@ const Info = () => {
             <h5>Jours et Heures d'ouverture</h5>
             <p>Du mardi au vendredi: 10h - 14h / 16h30 - 19h00</p>
             <p>Samedi: 10h - 14h</p>
-          </div>          
+          </div>
         </div>
       </div>
 
 
       <div id="info-map" className="container">
-        <iframe src={gglSrc} frameBorder="0"></iframe>
+        <iframe src={gglSrc} frameBorder="0" title="Carte"></iframe>
       </div>
     </section>
   )

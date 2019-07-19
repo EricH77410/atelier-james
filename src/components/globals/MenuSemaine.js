@@ -7,7 +7,7 @@ import PlatList from '../globals/PlatList'
 
 const days = ['Lundi', 'Mardi', 'Mercredi', "Jeudi", 'Vendredi', 'Samedi', 'Dimanche']
 
-const MenuSemaine = () => {
+const MenuSemaine = ({plats}) => {
   return (
     <section name="menu-semaine">
       <Hero>
@@ -16,7 +16,7 @@ const MenuSemaine = () => {
 
       <div className="menu-container">
         {days.map((day, ind) => {
-          return <PlatList key={ind} day={day}/>
+          return <PlatList key={ind} day={day} plats={plats}/>
         })}
 
       </div>

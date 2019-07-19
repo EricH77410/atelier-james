@@ -8,7 +8,7 @@ const Plat = ({ plat }) => {
       <div className="plat-content card-body">
         <h4 className="plat-card-title">{plat.title}</h4>
         <p className="plat-card-description">{plat.description}</p>
-        <span>{plat.price.toFixed(2)} €</span>
+        <span>{plat.price.toFixed(2)} € / part</span>
       </div>
     </div>
   )

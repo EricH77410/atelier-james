@@ -1,5 +1,5 @@
 import React from "react"
-//import { Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -13,20 +13,74 @@ import Contact from '../components/globals/Contact'
 import Info from '../components/globals/Info'
 //import Admin from '../components/AdminProduct'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Hero home="true" className="home-hero">
-      <Banner title="L'atelier de james" info="votre traiteur - Biarritz"/>
-    </Hero>
-    <section className="main">
-      <MenuJour />
-      <MenuSemaine />
-      <Info />
-      <Contact />
-    </section>
+class IndexPage extends React.Component {
 
-  </Layout>
-)
+  state = {
+    plats: this.props.data.plats.edges,
+    category: [],
+    days: ['Lundi', 'Mardi', 'Mercredi', "Jeudi", 'Vendredi', 'Samedi', 'Dimanche']
+  }
+
+  componentDidMount() {
+    this.setState(()=>{
+      return {category: this.props.data.categories.edges.map(({node}) => {return node.title} )}
+    })
+  }
+
+  getToday(){
+    return 'Jeudi'
+  }
+
+  getPlatsToday(){
+    return this.state.plats
+  }
+
+  render() {
+    console.log(this.state);
+    return (
+      <Layout>
+        <SEO title="Home" />
+        <Hero home="true" className="home-hero">
+          <Banner title="L'atelier de james" info="votre traiteur - Biarritz"/>
+        </Hero>
+        <section className="main">
+          <MenuJour day={this.getToday()} plats={this.getPlatsToday()}/>
+          <MenuSemaine plats={this.getPlatsToday()}/>
+          <Info />
+          <Contact />
+      </section>
+    </Layout>
+  )
+  }
+}
+
 
 export default IndexPage
+export const query = graphql`{
+  plats: allContentfulPlat{
+    edges{
+      node{
+        id
+        title
+        price
+        description
+        category { title }
+        image {
+          fluid(maxWidth:250, maxHeight:150) {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    }
+  }
+
+  categories:allContentfulCategory(skip: 7) {
+    edges {
+      node{
+        title
+      }
+    }
+  }
+}
+
+`
