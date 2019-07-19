@@ -142,24 +142,6 @@
   }
 }
 
-#info-map iframe {
-  min-height: 350px;
-  width: 100%;
-  display: block;
-  margin-bottom: 3rem;
-  border: 2px solid var(--mainGold);
-}
-
-.info-icon {
-  background: var(--mainGold);
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: 0 auto;
-  border: 1px solid var(--mainBrown);
-  box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5);
-}
-
 /* MENU SEMAINE */
 
 .menu-container {
@@ -232,3 +214,48 @@
   }
 }
 /* FIN PLAT */
+
+
+/* INFO */
+
+#info-map iframe {
+  min-height: 350px;
+  width: 100%;
+  display: block;
+  margin-bottom: 3rem;
+  border: 2px solid var(--mainGold);
+}
+
+.info-icon {
+  background: var(--mainGold);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 1px solid var(--mainBrown);
+  box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5);
+  color: var(--mainWhite);
+  display: flex;
+  justify-content: center;
+}
+
+.info-icon span {
+  display: block;
+  font-size: 5rem;
+}
+
+.info-container {
+  margin-top: 3rem;
+}
+
+.info-heure {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--mainGold);
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* FIN INFO */

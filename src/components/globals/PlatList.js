@@ -23,7 +23,9 @@ const getPlats = graphql`
 }
 `
 
-const getTodayMenu = graphql`
+const PlatList = ({day}) => {
+
+  const getTodayMenu = (graphql`
 query($today:String!){
   plats:allContentfulPlat(filter: { category: { elemMatch: {title: {eq: $today}}}}){
     edges{
@@ -43,14 +45,13 @@ query($today:String!){
     }
   }
 }
-`
+`,{today: day})
 
+// const test = useStaticQuery(getTodayMenu)
+// console.log(test)
 
-const PlatList = ({day}) => {
+  const {plats} = useStaticQuery(getPlats)  
 
-
-  const {plats} = useStaticQuery(getPlats)
-  console.log(plats)
   return (
     <div className="list-plat">
       <div className="list-plat-title">
