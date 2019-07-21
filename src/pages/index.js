@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 import Hero from '../components/globals/Hero'
 import Banner from '../components/globals/Banner'
-
+import About from '../components/globals/About'
 import MenuJour from '../components/globals/MenuJour'
 import MenuSemaine from '../components/globals/MenuSemaine'
 import Contact from '../components/globals/Contact'
@@ -53,6 +53,7 @@ class IndexPage extends React.Component {
           <Banner title="L'atelier de james" info="votre traiteur - Biarritz"/>
         </Hero>
         <section className="main">
+          <About />
           <MenuJour day={this.getToday()} plats={this.state.plats}/>
           <MenuSemaine plats={this.state.plats}/>
           <Info />
