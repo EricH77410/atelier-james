@@ -175,6 +175,12 @@
   color: var(--mainGold);
   text-align: center;
 }
+@media only screen and (min-width: 768px){
+  .list-plat {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 @media only screen and (min-width: 1200px) {
   .list-plat {
@@ -183,8 +189,9 @@
   }
   .list-plat-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: right;
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 /* FIN LIST PLAT */
@@ -217,6 +224,10 @@
   .plat-card {
     align-self: initial;
     width: 12rem;
+  }
+
+  .card {
+    margin-right: 1rem;
   }
 }
 /* FIN PLAT */
@@ -265,3 +276,123 @@
 }
 
 /* FIN INFO */
+
+
+/* CONTACT */
+.contact {
+  display: flex; 
+  flex-direction: column; 
+  margin-top: 1rem;
+}
+
+.contact svg {
+  font-size: 1rem;
+}
+
+/* .contact-left {
+  width: 100%;
+  color: var(--mainWhite);
+  padding: 2rem 0.5rem 1rem 1rem;
+  background-image: url(../images/vitrine.jpg);  
+  background-size: cover;
+  background-position: center;
+} */
+
+.contact-left {
+  width: 100%;
+  color: var(--mainBrown);
+  padding: 2rem 0.5rem 1rem 1rem;
+  position: relative;
+}
+
+.contact-left h4{
+  font-family: 'Great Vibes',serif;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.contact-background::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../images/vitrine.jpg); 
+  background-size: cover;
+  opacity: .2;
+}
+
+.contact-left h5 {
+  margin-left: 1rem;
+  font-size: 1rem;
+}
+
+.contact-address {
+  display: flex;  
+  padding-left: 2rem;
+  position: relative;
+}
+
+.contact-tel {
+  display: flex;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.contact-email {
+  display: flex;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.contact-right {
+  color: var(--mainGold);
+  width: 100%;
+  padding: 2rem;
+}
+
+.btn-yellow {
+  border: 1px solid var(--mainGold);
+  transition: all .3s;
+}
+
+.btn-yellow:hover {
+  background: var(--mainGold);
+  color: var(--mainWhite);
+}
+
+@media only screen and (min-width: 1200px) {
+  .contact {
+    display: flex; 
+    flex-direction: row; 
+  }
+  .contact-left {
+    width: 50%;
+    padding: 5rem;
+  }
+  .contact svg {
+    font-size: 3rem;
+  }
+  .contact-left h5 {
+    margin-left: 2rem;
+  }
+  .contact-address {
+    padding: 0;
+    align-items: center;
+  }
+  .contact-tel {
+    padding-left: 0;
+    align-items: center;
+  }
+  .contact-email {
+    padding-left: 0;
+    align-items: center;
+  }
+  .contact-right {
+    width: 50%;
+    padding: 2rem;
+  }
+}
+
+/* FIN CONTACT */

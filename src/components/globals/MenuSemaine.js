@@ -5,9 +5,23 @@ import Title from './Title'
 
 import PlatList from '../globals/PlatList'
 
-const days = ['Lundi', 'Mardi', 'Mercredi', "Jeudi", 'Vendredi', 'Samedi', 'Dimanche']
+const days = ['Mardi', 'Mercredi', "Jeudi", 'Vendredi', 'Samedi']
 
 const MenuSemaine = ({plats}) => {
+  let count = 0
+  const getPlatsByDay = (day) => {
+    let platsByDay = []
+    plats.forEach((plat) => {
+      plat.node.category.forEach((c) => {
+        if (c.title === day){
+          platsByDay.push(plat)
+        }
+      })
+    })
+    count = platsByDay.length
+    return platsByDay
+  }
+
   return (
     <section name="menu-semaine">
       <Hero>
@@ -16,7 +30,7 @@ const MenuSemaine = ({plats}) => {
 
       <div className="menu-container">
         {days.map((day, ind) => {
-          return <PlatList key={ind} day={day} plats={plats}/>
+          return <PlatList key={ind} day={day} plats={getPlatsByDay(day)} count={count}/>
         })}
 
       </div>

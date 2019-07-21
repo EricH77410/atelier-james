@@ -18,7 +18,7 @@ class IndexPage extends React.Component {
   state = {
     plats: this.props.data.plats.edges,
     category: [],
-    days: ['Lundi', 'Mardi', 'Mercredi', "Jeudi", 'Vendredi', 'Samedi', 'Dimanche']
+    days: ['Mardi', 'Mercredi', "Jeudi", 'Vendredi', 'Samedi']
   }
 
   componentDidMount() {
@@ -27,16 +27,25 @@ class IndexPage extends React.Component {
     })
   }
 
-  getToday(){
-    return 'Jeudi'
+  getToday(){    
+    //return this.state.days[new Date().getDay()]
+    return 'Samedi'
   }
 
-  getPlatsToday(){
-    return this.state.plats
+  getPlatsToday(){    
+    let plats = []
+    const day = this.getToday()
+    this.state.plats.forEach((plat) => {
+      plat.node.category.forEach((c) => {
+        if (c.title === day){
+          plats.push(plat)
+        }
+      })
+    })
+    return plats
   }
 
   render() {
-    console.log(this.state);
     return (
       <Layout>
         <SEO title="Home" />
@@ -44,8 +53,8 @@ class IndexPage extends React.Component {
           <Banner title="L'atelier de james" info="votre traiteur - Biarritz"/>
         </Hero>
         <section className="main">
-          <MenuJour day={this.getToday()} plats={this.getPlatsToday()}/>
-          <MenuSemaine plats={this.getPlatsToday()}/>
+          <MenuJour day={this.getToday()} plats={this.state.plats}/>
+          <MenuSemaine plats={this.state.plats}/>
           <Info />
           <Contact />
       </section>
@@ -66,7 +75,7 @@ export const query = graphql`{
         description
         category { title }
         image {
-          fluid(maxWidth:250, maxHeight:150) {
+          fluid(maxWidth:500, maxHeight:500) {
             ...GatsbyContentfulFluid
           }
         }
