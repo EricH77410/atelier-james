@@ -27,7 +27,14 @@ class IndexPage extends React.Component {
     })
   }
 
-  getToday(){    
+  getToday(){ 
+    const today = new Date().getDay()
+    switch(today){
+      case 0:
+      case 1:
+      case 2,3,4,6:
+    }
+    console.log(today)
     //return this.state.days[new Date().getDay()]
     return 'Samedi'
   }

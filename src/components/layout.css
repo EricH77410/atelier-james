@@ -151,25 +151,24 @@
 /* About */
 .about-us {
   display: flex;
-  margin-bottom: 5rem;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .about-left {
-  width: 50%;
-  height: 500px;
+  width: 100%;
 }
 .about-image {
   background-image: url(../images/vitrine.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   max-width: 100%;
-  height: 500px;
+  height: 200px;
   box-shadow: 1px 2px 1rem rgba(0,0,0,.4);
 }
 
 .about-right {
-  width:50%;
-  margin-left: 3rem;
+  width:100%;
   color: var(--mainGold);
 }
 
@@ -188,6 +187,26 @@
 .about-right p {
   line-height: 2;
 }
+
+@media only screen and (min-width: 1200px) {
+  .about-us {
+    flex-direction: row;
+    margin-bottom: 5rem;
+  }
+  .about-image {
+    height: 500px;
+  }
+  .about-left {
+    width: 50%;
+    height: 500px;
+  }
+  .about-right {
+    width:50%;
+    margin-left: 3rem;
+    color: var(--mainGold);
+  }
+}
+
 /* FIN ABOUT */
 
 /* MENU SEMAINE */

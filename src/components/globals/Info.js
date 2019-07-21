@@ -22,7 +22,7 @@ const Info = () => {
           </div>
           <div className="info-heure">
             <h5>Jours et Heures d'ouverture</h5>
-            <p>Du mardi au vendredi: 10h - 14h / 16h30 - 19h00</p>
+            <p>Du mardi au vendredi:</p><p> 10h - 14h / 16h30 - 19h00</p>
             <p>Samedi: 10h - 14h</p>
           </div>
         </div>
