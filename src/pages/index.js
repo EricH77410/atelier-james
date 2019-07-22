@@ -66,7 +66,7 @@ class IndexPage extends React.Component {
         </Hero>
         <section className="main">
           <About />
-          <MenuJour day={this.getToday()} plats={this.state.plats}/>
+          <MenuJour day={this.getToday()} plats={this.getPlatsToday()}/>
           <MenuSemaine plats={this.state.plats}/>
           <Info />
           <Contact />
