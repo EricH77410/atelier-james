@@ -29,14 +29,19 @@ class IndexPage extends React.Component {
 
   getToday(){ 
     const today = new Date().getDay()
+    let index = 0;
     switch(today){
       case 0:
+        index = 0
+        break
       case 1:
-      case 2,3,4,6:
+        index = 0
+        break
+      default:
+        index = today - 2
+        break
     }
-    console.log(today)
-    //return this.state.days[new Date().getDay()]
-    return 'Samedi'
+    return this.state.days[index]
   }
 
   getPlatsToday(){    

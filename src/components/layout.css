@@ -181,7 +181,8 @@
 .about-right span {
   font-family: 'Great Vibes',serif;
   display: inline-block;
-  font-size: 1rem;  
+  font-size: 1rem; 
+  margin-right: 2px; 
 }
 
 .about-right p {
@@ -250,7 +251,7 @@
   }
   .list-plat-content {
     display: flex;
-    justify-content: right;
+    justify-content: left;
     flex-direction: row;
     flex-wrap: wrap;
   }
