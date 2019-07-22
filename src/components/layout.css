@@ -13,6 +13,7 @@
   font-family: 'Great Vibes',serif;
   color: var(--mainWhite);
   padding: 2rem 0;
+  text-shadow: 2px 1px 12px rgba(0, 0, 0, 0.68);
 }
 
 /* Barre de menu */
@@ -364,6 +365,7 @@
   font-family: 'Great Vibes',serif;
   font-size: 3rem;
   text-align: center;
+  text-shadow: 2px 1px 12px rgba(0, 0, 0, 0.68);
 }
 
 .contact-background::before {
