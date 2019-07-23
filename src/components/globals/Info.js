@@ -5,7 +5,7 @@ import Title from './Title'
 
 import Hero from './Hero'
 
-const key = process.env.GGL_API_KEY
+const key = process.env.GGL_API_KEY || 'AIzaSyCFTEEUGk7hGBqhWJiqIrSRCN1Hn5QhL5s'
 const gglSrc = "https://www.google.com/maps/embed/v1/place?q=L'atelier+Biarritz+17+avenue de verdun&key="+key
 
 const Info = () => {

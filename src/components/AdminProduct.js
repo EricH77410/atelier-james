@@ -1,22 +1,13 @@
 import React, { Component } from 'react'
-
-import { useStaticQuery, graphql } from 'gatsby'
+import { createClient } from 'contentful-management'
 
 import Title from './globals/Title'
 
-// const getCat = graphql`
-// {
-//   categories: allContentfulCategory {
-//     edges {
-//       node {
-//         title
-//       }
-//     }
-//   }
-// }
-// `
 
-// const categories = useStaticQuery(getCat)
+const client = createClient({
+  accessToken: "CFPAT-UBsFP32zmPnc51uD1bk_tFbfc5m1rk6hP8GyM-fHq58"
+})
+const spaceId = '8gqi5226j56q'
 
 class AdminProduct extends Component {
 
@@ -25,7 +16,65 @@ class AdminProduct extends Component {
     title: '',
     price: 0,
     description: '',
-    image: '' 
+    image: '',
+    catIds: [] 
+  }
+
+  componentDidMount(){    
+    client.getSpace(spaceId)
+      .then((space) => {
+        space.getEnvironment('master')
+          .then((environment) => environment.getEntries({'content_type':'category'}))
+          .then((res) => {
+            console.log(res.items)
+          })
+      })
+  }
+
+  createAsset = () =>{
+    //const src = this.state.image
+    let img_id
+    client.getSpace(spaceId)
+      .then((space) => space.getEnvironment('master'))
+      .then((env) => env.createAsset({
+        fields: {
+          title: {
+            'fr': 'Img Rico Test'
+          },
+          file: {
+            'fr': {
+              contentType: 'image/jpeg',
+              fileName: 'img_rico.jpeg',
+              upload: 'https://i0.wp.com/rico-media.fr/atelier/wp-content/uploads/2015/07/cafe.jpg?fit=530%2C440&ssl=1'
+            }
+          }
+        }
+      }))
+      .then((asset) => asset.processForAllLocales())
+      .then((asset) => asset.publish())
+      .then((asset) => {
+        this.createEntry(asset.sys.id)
+      })
+      .catch(console.error)
+
+  }
+
+  createEntry = (assetId) => {
+    const contentTypeId = 'plat'
+
+    //Creation de l'entry
+    client.getSpace(spaceId)
+      .then((space)=>space.getEnvironment('master'))
+      .then((env)=>env.createEntry(contentTypeId,{
+        fields: {
+          title: {'fr':'Rico plat'},
+          description: {'fr':'Rico description'},
+          price: {'fr':10.90},
+          image: {'fr':{sys:{id: assetId, linkType:'Asset', type:'Link'}}}
+        }
+      }))
+      .then((entry) => entry.publish())
+      .then((entry) => console.log(entry))
   }
 
   handleTitle = (e) => {
@@ -50,6 +99,7 @@ class AdminProduct extends Component {
       title: this.state.title,
       description: this.state.description,
       price: this.state.price,
+      image: this.state.image
     }
     console.log(obj)
   }
@@ -63,6 +113,11 @@ class AdminProduct extends Component {
           <div className="form-group">
             <label htmlFor="title">Titre</label>
             <input value={this.state.title} onChange={this.handleTitle} type="text" className="form-control" name="title" id="title" placeholder="Poulet aux olives"/>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="image">Image</label>
+            <input type="file" value={this.state.image} onChange={this.handleImage} className="form-control" name="image" id="image"/>
           </div>
 
           <div className="form-group">
@@ -94,6 +149,7 @@ class AdminProduct extends Component {
           </div>
 
           <button type="submit" className="btn btn-primary btn-block text-capitalize mt-5">submit</button>
+          <button className="btn btn-block btn-primary" onClick={this.createAsset}>Asset Test</button>
         </form>
       </section>
     )

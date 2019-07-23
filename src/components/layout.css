@@ -227,17 +227,21 @@
   grid-template-columns: 1fr;
   margin-bottom: 1rem;
   margin: 2rem auto;
+  border: 1px solid var(--mainGold);
+  border-radius: 5px;
 }
 .list-plat-content {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  margin-top: 1rem;
 }
 .list-plat-title {
   align-self: center;
   font-family: 'Great Vibes',serif;
   color: var(--mainGold);
   text-align: center;
+  margin-top: 1rem;
 }
 @media only screen and (min-width: 768px){
   .list-plat {
@@ -277,11 +281,21 @@
   font-size: 0.8rem;
 }
 
-.plat-content span {
+.plat-content .span-left {
   position: absolute;
   left: 0;
   bottom: 0;
   padding-left: 1.25rem;
+}
+
+.plat-content .span-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-right: 1.25rem;
+  padding-bottom: 2px;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 1200px) {

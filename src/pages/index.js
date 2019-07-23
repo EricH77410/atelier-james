@@ -11,7 +11,7 @@ import MenuJour from '../components/globals/MenuJour'
 import MenuSemaine from '../components/globals/MenuSemaine'
 import Contact from '../components/globals/Contact'
 import Info from '../components/globals/Info'
-//import Admin from '../components/AdminProduct'
+import Admin from '../components/AdminProduct'
 
 class IndexPage extends React.Component {
 
@@ -70,7 +70,8 @@ class IndexPage extends React.Component {
           <MenuSemaine plats={this.state.plats}/>
           <Info />
           <Contact />
-      </section>
+        </section> 
+        <Admin />
     </Layout>
   )
   }
@@ -95,7 +96,6 @@ export const query = graphql`{
       }
     }
   }
-
   categories:allContentfulCategory(skip: 7) {
     edges {
       node{
@@ -104,5 +104,4 @@ export const query = graphql`{
     }
   }
 }
-
 `

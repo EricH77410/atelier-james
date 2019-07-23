@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-scroll'
 
 import logo from '../../images/logo.png'
-import { FaFacebook, FaInstagram } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaCartArrowDown } from 'react-icons/fa'
 
 export default class NavBar extends Component {
 
@@ -18,7 +18,8 @@ export default class NavBar extends Component {
         ],
         social: [
             {icon: <FaFacebook />, url:'https://facebook.com'},
-            {icon: <FaInstagram />, url:'https://instagram.com'}
+            {icon: <FaInstagram />, url:'https://instagram.com'},
+            {icon: <FaCartArrowDown className="snipcart-checkout"/>, url:''}
         ]
     }
 
