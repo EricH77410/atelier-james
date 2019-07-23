@@ -19,7 +19,6 @@ export default class NavBar extends Component {
         social: [
             {icon: <FaFacebook />, url:'https://facebook.com'},
             {icon: <FaInstagram />, url:'https://instagram.com'},
-            {icon: <FaCartArrowDown className="snipcart-checkout"/>, url:''}
         ]
     }
 
@@ -51,6 +50,7 @@ export default class NavBar extends Component {
                             { this.state.social.map((item, ind) => {
                                 return <a className="social-item" href={item.url} key={ind} target="_blank" rel="noopener noreferrer">{item.icon}</a>
                             })}
+                            <span className="cart-show"><FaCartArrowDown className="snipcart-checkout"/></span>
                             </div>
                         </ul>
 

@@ -11,10 +11,10 @@ const Plat = ({ plat, addToCart }) => {
         <p className="plat-card-description">{plat.description}</p>
         <span className="span-left">{plat.price.toFixed(2)} € / part</span>
         <span className="span-right snipcart-add-item"
-          data-item-id={plat.title}
+          data-item-id={plat.id}
           data-item-name={plat.title}
-          data-item-price={plat.price}
-          data-item-url="https://atelier-james.netlify.com"
+          data-item-price={plat.price.toFixed(2)}
+          data-item-url="http://localhost:8000/"
           data-item-image={plat.image.fluid.src}
         >
           <FaCartArrowDown />

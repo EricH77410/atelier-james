@@ -56,6 +56,13 @@
   color: var(--mainWhite);
 }
 
+.cart-show {
+  display: inline-block;
+  color: var(--mainWhite);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 /* Fin Barre de menu */
 
 .home-hero {
