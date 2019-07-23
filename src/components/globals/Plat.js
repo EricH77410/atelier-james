@@ -14,7 +14,7 @@ const Plat = ({ plat, addToCart }) => {
           data-item-id={plat.id}
           data-item-name={plat.title}
           data-item-price={plat.price.toFixed(2)}
-          data-item-url="http://localhost:8000/"
+          data-item-url="http://atelier-james.netlify.com"
           data-item-image={plat.image.fluid.src}
         >
           <FaCartArrowDown />
