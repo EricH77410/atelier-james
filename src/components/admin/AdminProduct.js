@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { createClient } from 'contentful-management'
+import { spaceId, contentTypeID, Content_Token } from '../../variables/ContentFul'
 
-import Title from './globals/Title'
+import Title from '../globals/Title'
 
 
 const client = createClient({
-  accessToken: "CFPAT-UBsFP32zmPnc51uD1bk_tFbfc5m1rk6hP8GyM-fHq58"
+  accessToken: Content_Token
 })
-const spaceId = '8gqi5226j56q'
+
 
 class AdminProduct extends Component {
 
@@ -17,35 +18,30 @@ class AdminProduct extends Component {
     price: 0,
     description: '',
     image: '',
-    catIds: [] 
+    catIds: [],
+    loading: false 
   }
 
   componentDidMount(){    
-    client.getSpace(spaceId)
-      .then((space) => {
-        space.getEnvironment('master')
-          .then((environment) => environment.getEntries({'content_type':'category'}))
-          .then((res) => {
-            console.log(res.items)
-          })
-      })
+
   }
 
   createAsset = () =>{
-    //const src = this.state.image
-    let img_id
+    this.setState({loading: true})
+    const tabImg = this.state.image.split('/')
+    const imgName = tabImg[tabImg.length-1]
     client.getSpace(spaceId)
       .then((space) => space.getEnvironment('master'))
       .then((env) => env.createAsset({
         fields: {
           title: {
-            'fr': 'Img Rico Test'
+            'en-US': imgName
           },
           file: {
-            'fr': {
+            'en-US': {
               contentType: 'image/jpeg',
-              fileName: 'img_rico.jpeg',
-              upload: 'https://i0.wp.com/rico-media.fr/atelier/wp-content/uploads/2015/07/cafe.jpg?fit=530%2C440&ssl=1'
+              fileName: imgName,
+              upload: this.state.image
             }
           }
         }
@@ -60,21 +56,25 @@ class AdminProduct extends Component {
   }
 
   createEntry = (assetId) => {
-    const contentTypeId = 'plat'
-
+    console.log('CreateAsset: '+ assetId)
     //Creation de l'entry
     client.getSpace(spaceId)
       .then((space)=>space.getEnvironment('master'))
-      .then((env)=>env.createEntry(contentTypeId,{
+      .then((env)=>env.createEntry(contentTypeID,{
         fields: {
-          title: {'fr':'Rico plat'},
-          description: {'fr':'Rico description'},
-          price: {'fr':10.90},
-          image: {'fr':{sys:{id: assetId, linkType:'Asset', type:'Link'}}}
+          title: {'en-US':this.state.title},
+          description: {'en-US':this.state.description},
+          price: {'en-US':parseInt(this.state.price,10)},
+          image: {'en-US':{sys:{id: assetId, linkType:'Asset', type:'Link'}}}
         }
       }))
       .then((entry) => entry.publish())
-      .then((entry) => console.log(entry))
+      .then((entry) => {
+        console.log(entry)
+        this.setState({loading: false,title:'',description:'',image:'',price:0})
+      })
+
+      
   }
 
   handleTitle = (e) => {
@@ -94,20 +94,24 @@ class AdminProduct extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    const obj = {
-      title: this.state.title,
-      description: this.state.description,
-      price: this.state.price,
-      image: this.state.image
-    }
-    console.log(obj)
+    e.preventDefault()    
+  }
+
+  handleCategories = (e) => {
+    console.log(e.target.value)
+  }
+
+  handleJour = (e) => {
+    console.log(e.target.value)
   }
 
   render() {
     return (
-      <section className="admin-product container">
+      <section className="admin-product container col-md-5">
         <Title title="Ajout d'un plat" />
+        { this.state.loading ? <div className="spinner-border text-success" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>:'' }
         <form onSubmit={this.handleSubmit}>
 
           <div className="form-group">
@@ -116,13 +120,13 @@ class AdminProduct extends Component {
           </div>
 
           <div className="form-group">
-            <label htmlFor="image">Image</label>
-            <input type="file" value={this.state.image} onChange={this.handleImage} className="form-control" name="image" id="image"/>
+            <label htmlFor="image">URL Image</label>
+            <input type="tet" value={this.state.image} onChange={this.handleImage} className="form-control" name="image" id="image"/>
           </div>
 
           <div className="form-group">
             <label htmlFor="price">Prix</label>
-            <input value={this.state.price} onChange={this.handlePrice} type="text" className="form-control" name="price" id="price" placeholder="12,90"/>
+            <input value={this.state.price} onChange={this.handlePrice} type="number" className="form-control" name="price" id="price" placeholder="12,90"/>
           </div>
 
           <div className="form-group">
@@ -132,7 +136,7 @@ class AdminProduct extends Component {
 
           <div className="form-group">
             <label htmlFor="category">Categorie</label>
-            <select multiple className="form-control" id="category">
+            <select multiple className="form-control" id="category" onChange={this.handleCategories}>
               <option>Entrée</option>
               <option>Plat</option>
               <option>Dessert</option>
@@ -140,8 +144,8 @@ class AdminProduct extends Component {
           </div>
 
           <div className="form-group">
-            <label htmlFor="jour">Categorie</label>
-            <select multiple className="form-control" id="jour">
+            <label htmlFor="jour">Au menu</label>
+            <select multiple className="form-control" id="jour" onChange={this.handleJour}>
               {this.state.days.map((jour,ind) => {
                 return <option key={ind}>{jour}</option>
               })}

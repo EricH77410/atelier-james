@@ -11,7 +11,6 @@ import MenuJour from '../components/globals/MenuJour'
 import MenuSemaine from '../components/globals/MenuSemaine'
 import Contact from '../components/globals/Contact'
 import Info from '../components/globals/Info'
-// import Admin from '../components/AdminProduct'
 
 class IndexPage extends React.Component {
 
@@ -71,7 +70,6 @@ class IndexPage extends React.Component {
           <Info />
           <Contact />
         </section> 
-        {/* <Admin /> */}
     </Layout>
   )
   }

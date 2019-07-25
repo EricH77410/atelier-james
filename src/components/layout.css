@@ -474,3 +474,13 @@
 }
 
 /* FIN CONTACT */
+
+/* ADMIN */
+
+.admin-product-list .list-items {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* FIN ADMIN */
